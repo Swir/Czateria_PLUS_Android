@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/publish-release.yml'
+      - '.release-trigger-v0.6.3'
   workflow_dispatch:
 
 permissions:
@@ -17,17 +17,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download verified build artifact
+      - name: Download verified APK
         run: |
-          curl -L --fail --retry 3 \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/Swir/XBookmark/actions/artifacts/10091300381/zip" \
-            -o czateria-build.zip
-          mkdir extracted
-          unzip -q czateria-build.zip -d extracted
-          APK="$(find extracted -type f -name '*.apk' | head -n 1)"
-          test -n "$APK"
-          cp "$APK" Czateria_PLUS_Android_v0.6.3.apk
+          curl -L --fail --retry 5 --retry-delay 3 \
+            "https://raw.githubusercontent.com/Swir/XBookmark/czateria-plus-mobile-99/dist/Czateria_PLUS_Android_v0.6.3.apk" \
+            -o Czateria_PLUS_Android_v0.6.3.apk
           echo "2437fab6cff48bd9d2f0928e80cd734047ae9bbc2a6efcef69585c56eddd27a0  Czateria_PLUS_Android_v0.6.3.apk" | sha256sum -c -
 
       - name: Publish GitHub Release
