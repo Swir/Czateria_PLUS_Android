@@ -21,7 +21,7 @@ Pierwsze publiczne wydanie mobilnej wersji CZATeria Plus w tym repozytorium.
 ### Plik
 `Czateria_PLUS_Android_v0.6.3.apk`
 
-SHA-256 oryginalnego buildu:
-`2437fab6cff48bd9d2f0928e80cd734047ae9bbc2a6efcef69585c56eddd27a0`
+SHA-256 buildu opublikowanego w Release:
+`845c47a54a7eb8132d0df7818383b8d6fd93c38b5e34fbe119bbd72bcaa9f2a9`
 
 > Niezależny projekt społecznościowy. Nie jest oficjalną aplikacją Interii/CZATerii.
