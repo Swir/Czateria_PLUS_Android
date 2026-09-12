@@ -22,7 +22,10 @@ jobs:
           curl -L --fail --retry 5 --retry-delay 3 \
             "https://raw.githubusercontent.com/Swir/XBookmark/czateria-plus-mobile-99/dist/Czateria_PLUS_Android_v0.6.3.apk" \
             -o Czateria_PLUS_Android_v0.6.3.apk
-          echo "2437fab6cff48bd9d2f0928e80cd734047ae9bbc2a6efcef69585c56eddd27a0  Czateria_PLUS_Android_v0.6.3.apk" | sha256sum -c -
+          curl -L --fail --retry 5 --retry-delay 3 \
+            "https://raw.githubusercontent.com/Swir/XBookmark/czateria-plus-mobile-99/dist/Czateria_PLUS_Android_v0.6.3.sha256" \
+            -o Czateria_PLUS_Android_v0.6.3.sha256
+          sha256sum -c Czateria_PLUS_Android_v0.6.3.sha256
 
       - name: Publish GitHub Release
         env:
